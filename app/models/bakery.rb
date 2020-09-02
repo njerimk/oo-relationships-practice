@@ -40,17 +40,25 @@ class Bakery
     end
 
     def average_calories
-        x = self.ingredients.map do |ingredient|
-            ingredient.calories 
-            binding.pry  
+        calorie_array_result = self.ingredients.map do |ingredient|
+            ingredient.calories *= 1  
         end
-
-
-        #should return a float totaling the average number of calories for the desserts sold at this bakery
+        calorie_array_result.inject(0.0) do |sum, num| 
+            sum + num / calorie_array_result.count
+        end
+        #inject => iterates over each element and then applies an accumulator value to it, which is then handed to the next element
+        #binding.pry
     end
+    #binding.pry
+        #should return a float totaling the average number of calories for the desserts sold at this bakery
+ 
 
     def shopping_list
+       self.ingredients.select do |ingred_calor|
+        ingred_calor.name
 
+
+       binding.pry 
     end
 
 end
